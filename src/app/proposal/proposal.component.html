@@ -1,0 +1,71 @@
+<div class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <div class="page-caption">
+                    <h1 class="page-title">Move IT</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-white mb30">
+            <div class="row">
+                <div>
+                    <div class="section-title mb-0">
+                        <h2>We are waiting for your inquiry!</h2>
+                        <p>You can view all proposals <a [routerLink]="'/proposal-list'">here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-0">
+    <div class="row">
+        <form [formGroup]="inquiryForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingDistance" value="0" placeholder="Distance in km"
+                    formControlName="distance" [ngClass]="{ 'is-invalid': submitted && f.distance.errors }">
+                <div *ngIf="submitted && f.distance.errors" class="invalid-feedback">
+                    <div *ngIf="f.distance.errors.required">Distance is required</div>
+                </div>
+                <label for="floatingDistance">Distance in km</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" value="0" id="floatingLivingAreaVolume"
+                    placeholder="Living Area Volume in m2" formControlName="livingAreaVolume"
+                    [ngClass]="{ 'is-invalid': submitted && f.livingAreaVolume.errors }">
+                <div *ngIf="submitted && f.livingAreaVolume.errors" class="invalid-feedback">
+                    <div *ngIf="f.livingAreaVolume.errors.required">Living Area Volume is required</div>
+                </div>
+                <label for="floatingLivingAreaVolume">Living Area Volume in m2</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" value="0" id="floatingAtticAreaVolume"
+                    placeholder="Attic Area Volume in m2" formControlName="atticAreaVolume"
+                    [ngClass]="{ 'is-invalid': submitted && f.atticAreaVolume.errors }">
+                <div *ngIf="submitted && f.atticAreaVolume.errors" class="invalid-feedback">
+                    <div *ngIf="f.atticAreaVolume.errors.required">Attic Area Volume is required</div>
+                </div>
+                <label for="floatingAtticAreaVolume">Attic Area Volume in m2</label>
+            </div>
+
+            <div class="mb-3" id="floatingMovingObjectType">
+                <select class="form-select form-select-md" formControlName="movingObjectType">
+                    <option>Choose Moving Object Type</option>
+                    <option *ngFor="let type of movingObjectTypes" [ngValue]="type.key">
+                        {{ type.value }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="col-lg-2 float-right">
+                <button class="btn btn-primary mb-2" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

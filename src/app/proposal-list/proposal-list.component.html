@@ -1,0 +1,62 @@
+<div class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <div class="page-caption">
+                    <h1 class="page-title">Move IT</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-white mb30">
+            <div class="row">
+                <div>
+                    <div class="section-title mb-0">
+                        <h2>Hi {{fullName}}, here are your proposals!</h2>
+                        <p>You can make new inquiry <a [routerLink]="'/proposal'">here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Distance</th>
+                        <th scope="col">Living Area Volume</th>
+                        <th scope="col">Attic Area Volume</th>
+                        <th scope="col">Moving Object Type</th>
+                        <th scope="col">Calculated Price</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let proposal of proposals; let elementIndex=index;">
+                        <th scope="row">{{elementIndex + 1}}</th>
+                        <td>{{ proposal.distance }} km</td>
+                        <td>{{ proposal.livingAreaVolume }} m2</td>
+                        <td>{{ proposal.atticAreaVolume }} m2</td>
+                        <td>{{ proposal.movingObjectTypeName }}</td>
+                        <td>{{ proposal.calculatedPrice }} SEK</td>
+                        <td><a [routerLink]="['/proposal-details', proposal.id]">Details</a></td>
+                    </tr>
+                    <tr *ngIf="proposals.length == 0">
+                        <td colspan="7">
+                            <p class="text-center">No proposals found.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

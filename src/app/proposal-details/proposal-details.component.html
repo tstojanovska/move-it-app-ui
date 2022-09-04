@@ -1,0 +1,56 @@
+<div class="page-header">
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <div class="page-caption">
+                    <h1 class="page-title">Move IT</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-section">
+    <div class="container">
+        <div class="card-block bg-white mb30">
+            <div class="row">
+                <div>
+                    <div class="section-title mb-0">
+                        <h2>Your inquiry</h2>
+                        <p>You can view all proposals <a [routerLink]="'/proposal-list'">here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" *ngIf="!!proposal">
+    <div class="row">
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingDistance" placeholder="Distance in km"
+                [value]="proposal.distance" disabled>
+            <label for="floatingDistance">Distance in km</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatinglivingAreaVolume"
+                placeholder="Living Area Volume in m2" [value]="proposal.livingAreaVolume" disabled>
+            <label for="floatinglivingAreaVolume">Living Area Volume in m2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingAtticAreaVolume" placeholder="Attic Area Volume in m2"
+                [value]="proposal.atticAreaVolume" disabled>
+            <label for="floatingAtticAreaVolume">Attic Area Volume in m2</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingMovingObjectTypeName" placeholder="Moving Object Type"
+                [value]="proposal.movingObjectTypeName" disabled>
+            <label for="floatingMovingObjectTypeName">Moving Object Type</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingCalculatedPrice" placeholder="Calculated Price (SEK)"
+                [value]="proposal.calculatedPrice" disabled>
+            <label for="floatingCalculatedPrice">Calculated Price (SEK)</label>
+        </div>
+    </div>
+</div>
